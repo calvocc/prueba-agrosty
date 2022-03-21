@@ -1,8 +1,12 @@
 import styled from 'styled-components';
-import {Navbar, Nav, Button, Col} from "react-bootstrap";
+import {Navbar, Nav, Button, Col, Table} from "react-bootstrap";
 
 import * as COLORES from '../constans/Colores';
 
+export const StyleGeneral = styled.div`
+    background-color: ${COLORES.FONDO};
+    min-height: ${props => props.windowHeight}px;
+`
 
 export const StylesNavbar = styled(Navbar)`
     background: ${COLORES.AZUL}; 
@@ -61,12 +65,65 @@ export const StyleInfoNumero = styled(Col)`
     text-align: right;
     font-weight: 500;
 `
+export const StyleContenPage = styled.div`
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+`
 
 export const StylesTitulo = styled.h1`
-    color: ${COLORES.VERDE};
+    color: ${COLORES.TITULOS};
     font-weight: bold;
-    font-size: 22px;
-    margin-bottom: 20px;
+    font-size: 16px;
+    margin-bottom: ${props => props.MBottom ? props.MBottom : 0 }px;
+`
+
+export const StylesTituloCajaInfo = styled.p`
+    color: ${COLORES.TITULOS};
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: ${props => props.MBottom ? props.MBottom : 0 }px;
+`
+
+export const StylesTexto = styled.p`
+    color: ${COLORES.TEXTO};
+    font-size: 14px;
+    margin-bottom: 0px;
+`
+
+export const StylesCajaInfo = styled.div`
+    background-color: ${COLORES.BLANCO};
+    padding: 15px;
+`
+
+export const StylesTable = styled(Table)`
+    border-collapse: separate;
+    border-spacing: 3px 3px;
+    > thead > tr > th {
+        border-width: 0;
+        box-shadow: none;
+        background-color: ${COLORES.BLANCO};
+        color: ${COLORES.TITULOS};
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+    > tbody > tr > td {
+        color: ${COLORES.TEXTO};
+        font-size: 14px;
+        box-shadow: none;
+        border: 0px;
+        padding: 10px 15px;
+    }
+    > tbody > tr:nth-child(even) {
+        background-color: ${COLORES.GRIS};
+    }
+    > tbody > tr:nth-child(odd) {
+        background-color: ${COLORES.BLANCO};
+    }
+`
+export const StylesTableTRCenter = styled.td`
+    text-align: center;
 `
 
 export const StylesBtnVerde = styled(Button)`
