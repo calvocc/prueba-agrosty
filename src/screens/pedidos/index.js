@@ -69,7 +69,7 @@ const PedidosPage = () => {
                 </StylesContentSpinner>
                 :
                 <>
-                <InfobarComponent />
+                <InfobarComponent estado={dataPedido?.estado} transporte={dataPedido?.transporte.codigo}/>
                 <StyleContenPage>
                     <Container fluid>
                         <Row>

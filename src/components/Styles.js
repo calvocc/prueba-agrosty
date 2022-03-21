@@ -53,17 +53,18 @@ export const StyleInfoBar = styled.div`
     padding-right: 20px;
     padding-top: 5px;
     padding-bottom: 5px;
-    background-color: ${COLORES.SUCCESS};
+    background-color: ${props => props.color};
     font-size: 12px;
 `
 
 export const StyleInfoEstado = styled(Col)`
-    color: ${COLORES.BLANCO};
+    color: ${props => props.color};
     font-weight: 500;
+    text-transform: capitalize;
 `
 
 export const StyleInfoNumero = styled(Col)`
-    color: ${COLORES.BLANCO};
+    color: ${props => props.color};
     text-align: right;
     font-weight: 500;
 `
