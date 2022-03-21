@@ -8,6 +8,7 @@ import PedidosPage from './screens/pedidos';
 
 import * as ROUTES from './constans/rutas';
 import {StyleGeneral} from './components/Styles';
+import FooterComponen from './components/footer';
 
 function App() {
   const [windowHeight, setWindowHeight] = useState(0);
@@ -31,6 +32,7 @@ function App() {
             <Route exact path={ROUTES.PEDIDOS} element={<PedidosPage />} />
           </Routes>
         </Router>
+        <FooterComponen />
       </StyleGeneral>
     </Fragment>
   );

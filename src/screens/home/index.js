@@ -1,9 +1,10 @@
 import React, {useState, useContext, useEffect, useRef} from 'react';
-import { Container, Row, Col, Table } from 'react-bootstrap';
-import {StylesTitulo, StyleContenPage, StylesTexto, StylesCajaInfo, StylesTituloCajaInfo, StylesTable, StylesTableTRCenter } from '../../components/Styles';
+import { Container, Row, Col } from 'react-bootstrap';
+import {StylesTitulo, StyleContenPage, StylesTexto, StylesCajaInfo, StylesTituloCajaInfo, StylesTable, StylesTableTRCenter, StylesBorderDivisor, StylesBtnVerde } from '../../components/Styles';
 
 import NavbarComponent from '../../components/navbar';
 import InfobarComponent from '../../components/infobar';
+import InfoDespacho from '../../components/infodespacho';
 const HomePage = () => {
     return(
         <>
@@ -60,6 +61,27 @@ const HomePage = () => {
                             </StylesTable>
                         </Col>
                     </Row>
+                    <StylesBorderDivisor>
+                        <Col xs={12} sm={4} md={4} lg={4} className="ps-0">
+                            <InfoDespacho 
+                                titulo='Despacho:' 
+                                descripcion={'Su producto fue correctamente\ndespachado el 21/03/2022 a las 16:35'} 
+                                estado={1}
+                            />
+                        </Col>
+                        <Col xs={12} sm={4} md={4} lg={4}>
+                            <InfoDespacho 
+                                titulo='Entrega Estimada:' 
+                                descripcion={'Venado Tuerto\nel 21/03/2022'}
+                                estado={2}
+                            />
+                        </Col>
+                        <Col className="d-flex justify-content-end align-items-center pe-0">
+                            <StylesBtnVerde>
+                                Dejar mensaje
+                            </StylesBtnVerde>
+                        </Col>
+                    </StylesBorderDivisor>
                 </Container>
             </StyleContenPage>
             

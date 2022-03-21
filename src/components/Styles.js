@@ -1,11 +1,13 @@
 import styled from 'styled-components';
-import {Navbar, Nav, Button, Col, Table} from "react-bootstrap";
+import {Navbar, Nav, Button, Col, Row, Table} from "react-bootstrap";
 
 import * as COLORES from '../constans/Colores';
 
 export const StyleGeneral = styled.div`
     background-color: ${COLORES.FONDO};
     min-height: ${props => props.windowHeight}px;
+    padding-bottom: 30px;
+    position: relative;
 `
 
 export const StylesNavbar = styled(Navbar)`
@@ -90,6 +92,7 @@ export const StylesTexto = styled.p`
     color: ${COLORES.TEXTO};
     font-size: 14px;
     margin-bottom: 0px;
+    white-space: pre;
 `
 
 export const StylesCajaInfo = styled.div`
@@ -126,6 +129,48 @@ export const StylesTableTRCenter = styled.td`
     text-align: center;
 `
 
+export const StylesContentDespacho = styled.div`
+    display: flex;
+    flex-direction: row;
+    > svg {
+        font-size: 30px;
+        color: ${COLORES.VERDE};
+        margin-right: 15px;
+    }
+`
+
+export const StylesContentDespachoText = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+
+export const StylesBorderDivisor = styled(Row)`
+    position: relative;
+    padding: 10px 0px;
+    margin: 20px 0px;
+    &::before{
+        content: '';
+        height: 1px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        width: 100%;
+        background-color: ${COLORES.BORDE};
+    }
+    &::after{
+        content: '';
+        height: 1px;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        width: 100%;
+        background-color: ${COLORES.BORDE};
+    }
+
+`
+
 export const StylesBtnVerde = styled(Button)`
     background-color: ${COLORES.VERDE};
     color: ${COLORES.BLANCO};
@@ -134,6 +179,7 @@ export const StylesBtnVerde = styled(Button)`
     font-size: 14px;
     padding-left: 20px;
     padding-right: 20px;
+    max-height: 40px;
     &:hover{
         background-color: ${COLORES.VERDEACTIVO};
         border-color: ${COLORES.VERDEACTIVO  };
@@ -142,4 +188,18 @@ export const StylesBtnVerde = styled(Button)`
         width: 100%;
         display: block;
     }
+`
+
+export const StylesFooter = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 8px;
+    padding-bottom: 8px;
 `
