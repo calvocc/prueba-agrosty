@@ -71,7 +71,7 @@ export const StyleContenPage = styled.div`
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 25px;
-    padding-bottom: 25px;
+    padding-bottom: 0px;
 `
 
 export const StylesTitulo = styled.h1`
@@ -94,10 +94,23 @@ export const StylesTexto = styled.p`
     margin-bottom: 0px;
     white-space: pre;
 `
+export const StylesTextoCaja = styled.p`
+    color: ${COLORES.TEXTO};
+    font-size: 14px;
+    margin-bottom: 0px;
+    overflow-wrap: break-word;
+`
 
 export const StylesCajaInfo = styled.div`
     background-color: ${COLORES.BLANCO};
     padding: 15px;
+    margin-bottom: 5px;
+`
+
+export const StylesContenTable = styled.div`
+    height:  ${props => props.windowHeight}px;
+    overflow-y: auto;
+    width: 100%;
 `
 
 export const StylesTable = styled(Table)`
@@ -128,6 +141,9 @@ export const StylesTable = styled(Table)`
 export const StylesTableTRCenter = styled.td`
     text-align: center;
 `
+export const StylesTableTRRight = styled.td`
+    text-align: right;
+`
 
 export const StylesContentDespacho = styled.div`
     display: flex;
@@ -146,8 +162,8 @@ export const StylesContentDespachoText = styled.div`
 
 export const StylesBorderDivisor = styled(Row)`
     position: relative;
-    padding: 10px 0px;
-    margin: 20px 0px;
+    padding: 10px 0px 10px 0px;
+    margin: 20px 0px 10px 0px;
     &::before{
         content: '';
         height: 1px;
@@ -202,4 +218,12 @@ export const StylesFooter = styled.div`
     padding-right: 20px;
     padding-top: 8px;
     padding-bottom: 8px;
+`
+
+export const StylesContentSpinner = styled.div`
+    width: 100%;
+    height: ${props => props.windowHeight}px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `

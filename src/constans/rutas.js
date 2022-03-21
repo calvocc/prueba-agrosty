@@ -1,3 +1,2 @@
-export const HOME = '/';
-export const PEDIDOS = '/pedidos';
-export const PEDIDO_DETAIL = '/pedidos/:id';
+export const PEDIDOS = '/';
+export const PEDIDOS_DETALLE = ':pedido';

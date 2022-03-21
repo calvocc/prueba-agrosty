@@ -1,5 +1,5 @@
 import React, {Fragment, useEffect, useState} from 'react';
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, } from "react-router-dom";
 
 import './App.css';
 
@@ -9,6 +9,7 @@ import PedidosPage from './screens/pedidos';
 import * as ROUTES from './constans/rutas';
 import {StyleGeneral} from './components/Styles';
 import FooterComponen from './components/footer';
+import NavbarComponent from './components/navbar';
 
 function App() {
   const [windowHeight, setWindowHeight] = useState(0);
@@ -26,12 +27,14 @@ function App() {
   return (
     <Fragment>
       <StyleGeneral windowHeight={windowHeight}>
-        <Router>
+        <BrowserRouter>
           <Routes>
-            <Route exact path={ROUTES.HOME} element={<HomePage />} />
-            <Route exact path={ROUTES.PEDIDOS} element={<PedidosPage />} />
+            <Route path={ROUTES.PEDIDOS} element={<NavbarComponent />} >
+              <Route index path={ROUTES.PEDIDOS} element={<HomePage />} />
+              <Route path={ROUTES.PEDIDOS_DETALLE} element={<PedidosPage />} />
+            </Route>
           </Routes>
-        </Router>
+        </BrowserRouter>
         <FooterComponen />
       </StyleGeneral>
     </Fragment>
