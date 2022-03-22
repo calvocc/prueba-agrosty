@@ -92,7 +92,7 @@ const PedidosPage = () => {
                                 />
                             </Col>
                             <Col xs={12} sm={8} md={9} lg={10}>
-                                <StylesTitulo MBottom={10}>Articulos</StylesTitulo>
+                                <StylesTitulo MBottom={10} MTop={20}>Articulos</StylesTitulo>
                                 <StylesContenTable windowHeight={windowHeight - 300}>
                                     <StylesTable responsive={true}>
                                         <thead>
@@ -123,7 +123,7 @@ const PedidosPage = () => {
                         </Row>
 
                         <StylesBorderDivisor>
-                            <Col xs={12} sm={4} md={4} lg={4} className="ps-0">
+                            <Col xs={12} sm={4} md={4} lg={4}>
                                 <InfoDespacho 
                                     titulo='Despacho:' 
                                     descripcion={`Su producto fue correctamente\ndespachado el ${formatDate(dataPedido?.transporte?.despachado_el)}`} 
@@ -137,7 +137,7 @@ const PedidosPage = () => {
                                     estado={2}
                                 />
                             </Col>
-                            <Col className="d-flex justify-content-end align-items-center pe-0">
+                            <Col className="d-flex justify-content-start justify-content-sm-end  align-items-center pe-0">
                                 <StylesBtnVerde>
                                     Dejar mensaje
                                 </StylesBtnVerde>

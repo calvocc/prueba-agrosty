@@ -23,6 +23,17 @@ export const StylesNavbar = styled(Navbar)`
     padding-right: 20px;
     padding-top: 0px;
     padding-bottom: 0px;
+    @media screen and (max-width: 600px) {
+        min-height: 60px;
+        position: relative;
+    }
+    @media screen and (max-width: 450px) {
+        min-height: 60px;
+        position: relative;
+        > .navbar-toggler{
+            margin-top: 10px;
+        }
+    }
 `
 
 export const StyleBrand = styled(Navbar.Brand)`
@@ -34,6 +45,16 @@ export const StyleBrand = styled(Navbar.Brand)`
     font-weight: 700;
     margin-left: 20px;
     margin-right: 0px;
+    @media screen and (max-width: 600px) {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+    @media screen and (max-width: 450px) {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
 `
 
 export const StyleNavLink = styled(Nav.Link)`
@@ -81,6 +102,8 @@ export const StylesTitulo = styled.h1`
     font-weight: bold;
     font-size: 16px;
     margin-bottom: ${props => props.MBottom ? props.MBottom : 0 }px;
+    margin-top: ${props => props.MBottom ? props.MTop : 0 }px;
+    
 `
 
 export const StylesLink = styled(Link)`
@@ -124,6 +147,12 @@ export const StylesContenTable = styled.div`
     height: ${props => props.windowHeight}px;
     overflow-y: auto;
     width: 100%;
+    @media screen and (max-width: 600px) {
+        height: auto;
+    }
+    @media screen and (max-width: 450px) {
+        height: auto;
+    }
 `
 
 export const StylesTable = styled(Table)`
@@ -213,9 +242,11 @@ export const StylesBtnVerde = styled(Button)`
         background-color: ${COLORES.VERDEACTIVO};
         border-color: ${COLORES.VERDEACTIVO  };
     }
-    &.block{
-        width: 100%;
-        display: block;
+    @media screen and (max-width: 600px) {
+        margin-top: 20px;
+    }
+    @media screen and (max-width: 450px) {
+        margin-top: 20px;
     }
 `
 
