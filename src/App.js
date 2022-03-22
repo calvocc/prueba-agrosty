@@ -5,6 +5,7 @@ import './App.css';
 
 import HomePage from './screens/home';
 import PedidosPage from './screens/pedidos';
+import NofoundPage from './screens/nofound';
 
 import * as ROUTES from './constans/rutas';
 import {StyleGeneral} from './components/Styles';
@@ -33,6 +34,7 @@ function App() {
               <Route index path={ROUTES.PEDIDOS} element={<HomePage />} />
               <Route path={ROUTES.PEDIDOS_DETALLE} element={<PedidosPage />} />
             </Route>
+            <Route path="*" element={<NofoundPage />} />
           </Routes>
         </BrowserRouter>
         <FooterComponen />

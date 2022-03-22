@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import { useParams } from "react-router-dom";
-import { Container, Row, Col, Spinner } from 'react-bootstrap';
-import {StylesTitulo, StyleContenPage, StylesTable, StylesTableTRCenter, StylesBorderDivisor, StylesBtnVerde, StylesContentSpinner, StylesTableTRRight, StylesContenTable } from '../../components/Styles';
+import { useParams, useNavigate } from "react-router-dom";
+import { Container, Row, Col, Spinner, Toast } from 'react-bootstrap';
+import {StylesTitulo, StyleContenPage, StylesTable, StylesTableTRCenter, StylesBorderDivisor, StylesBtnVerde, StylesContentSpinner, StylesTableTRRight, StylesContenTable, StyleNoData } from '../../components/Styles';
 
 import InfobarComponent from '../../components/infobar';
 import InfoDespacho from '../../components/infodespacho';
@@ -11,8 +11,10 @@ import clienteAxios from '../../components/axios';
 const PedidosPage = () => {
 
     let { pedido } = useParams();
+    let navigate = useNavigate();
     const [loader, setLoader] = useState(true);
     const [dataPedido, setDataPedido] = useState();
+    const [show, setShow] = useState(false);
     const [windowHeight, setWindowHeight] = useState(0);
     
     let resizeWindow = () => {
@@ -23,16 +25,14 @@ const PedidosPage = () => {
         try {
             const result = await clienteAxios.get(`/${num}`);
             setDataPedido(result.data);
-            console.log(result.data);
         } catch (error) {
-            if(error.response.status === 404){
-                console.log('redirigir')
+            if(error.response.status === 404 || error.response.status === 401){
+                navigate("/perdido/404");
             } else {
-                console.log(error.response)
+                setShow(true);
             }
         } finally {
-            console.log('final')
-            setLoader(false)
+            setLoader(false);
         }
     }
 
@@ -43,7 +43,6 @@ const PedidosPage = () => {
 
     const formEntrega = (date) => {
         let fecha = new Date(date);
-        console.log(fecha.getHours());
         const momento = fecha.getHours() <= 12 ? 'mañana' : fecha.getHours() <= 19 ? 'tarde' : fecha.getHours() >= 19 ? 'noche' : 'sin calcular'
         return `${fecha.getMonth()+1}/${fecha.getDate()}/${fecha.getFullYear()} a la ${momento}`
     }
@@ -104,7 +103,7 @@ const PedidosPage = () => {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            { dataPedido?.detalle.map(item => {
+                                            { dataPedido?.detalle.length > 0 ? dataPedido?.detalle.map(item => {
                                                 return(
                                                     <tr key={item.id}>
                                                         <td>{item.material_descripcion}</td>
@@ -112,7 +111,11 @@ const PedidosPage = () => {
                                                         <StylesTableTRRight>{item.lote}</StylesTableTRRight>
                                                     </tr>
                                                 )
-                                            })}
+                                            }) :
+                                                <tr>
+                                                    <td colSpan='3'><StyleNoData>No hay datos disponibles.</StyleNoData></td>
+                                                </tr>
+                                            }
                                         </tbody>
                                     </StylesTable>
                                 </StylesContenTable>
@@ -142,6 +145,9 @@ const PedidosPage = () => {
                         </StylesBorderDivisor>
                     </Container>
                 </StyleContenPage>
+                <Toast onClose={() => setShow(false)} show={show} delay={3000} autohide>
+                    <Toast.Body>Algo salio mal intentalo nuevamente</Toast.Body>
+                </Toast>
                 </>
             }
             

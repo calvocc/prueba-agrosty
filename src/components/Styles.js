@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import {Navbar, Nav, Button, Col, Row, Table} from "react-bootstrap";
 
 import * as COLORES from '../constans/Colores';
@@ -82,11 +83,21 @@ export const StylesTitulo = styled.h1`
     margin-bottom: ${props => props.MBottom ? props.MBottom : 0 }px;
 `
 
+export const StylesLink = styled(Link)`
+    text-decoration: none;
+    margin-bottom: 20px;
+    display: block;
+    &:hover{
+        opacity: 0.6;
+    }
+`
+
 export const StylesTituloCajaInfo = styled.p`
     color: ${COLORES.TITULOS};
     font-weight: bold;
     font-size: 14px;
     margin-bottom: ${props => props.MBottom ? props.MBottom : 0 }px;
+    text-decoration: none !important;
 `
 
 export const StylesTexto = styled.p`
@@ -100,6 +111,7 @@ export const StylesTextoCaja = styled.p`
     font-size: 14px;
     margin-bottom: 0px;
     overflow-wrap: break-word;
+    text-decoration: none;
 `
 
 export const StylesCajaInfo = styled.div`
@@ -109,7 +121,7 @@ export const StylesCajaInfo = styled.div`
 `
 
 export const StylesContenTable = styled.div`
-    height:  ${props => props.windowHeight}px;
+    height: ${props => props.windowHeight}px;
     overflow-y: auto;
     width: 100%;
 `
@@ -227,4 +239,25 @@ export const StylesContentSpinner = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+`
+
+export const StyleNoData = styled.div`
+    background-color: ${COLORES.BLANCO};
+    color: ${COLORES.TEXTO};
+`
+export const Styles404Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: ${props => props.windowHeight}px;
+`
+export const Styles404Titulo = styled.h4`
+    color: ${COLORES.TITULOS};
+    font-size: 50px;
+    font-weight: 700;
+`
+export const Styles404Text = styled.p`
+    color: ${COLORES.TEXTO};
+    font-size: 14px;
 `
